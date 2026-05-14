@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JobFlow
 
-## Getting Started
+JobFlow é uma aplicação full stack de vagas e candidaturas, criada como projeto de portfólio para praticar desenvolvimento web com Next.js, TypeScript, banco de dados e autenticação.
 
-First, run the development server:
+## Objetivo
+
+O objetivo do projeto é simular uma plataforma onde empresas podem criar vagas e candidatos podem se candidatar, acompanhando suas candidaturas por meio de um painel.
+
+Este projeto está sendo desenvolvido como parte da minha preparação para oportunidades de estágio em desenvolvimento de software.
+
+## Tecnologias previstas
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Prisma ORM
+- PostgreSQL
+- Clerk
+- Vercel
+
+## Status do projeto
+
+🚧 Em desenvolvimento
+
+## Funcionalidades planejadas
+
+- Página inicial
+- Listagem de vagas
+- Página de detalhes da vaga
+- Cadastro e login de usuários
+- Perfil de candidato
+- Perfil de empresa
+- Criação de vagas por empresas
+- Candidatura em vagas
+- Painel do candidato
+- Painel da empresa
+- Alteração de status das candidaturas
+
+## Como rodar o projeto
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Rode o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Aprendizados esperados
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Durante o desenvolvimento deste projeto, pretendo praticar:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Estruturação de projetos com Next.js
+- Criação de componentes reutilizáveis
+- Integração com banco de dados
+- Modelagem de entidades
+- Autenticação de usuários
+- Validação de formulários
+- Deploy de aplicação full stack
+- Organização de commits no GitHub
