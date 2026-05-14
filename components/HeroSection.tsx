@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const featuredJobs = [
   {
     title: "Desenvolvedor Front-end Jr.",
@@ -37,18 +39,18 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#vagas-preview"
+            <Link
+              href="/vagas"
               className="inline-flex h-12 items-center justify-center rounded-md bg-emerald-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
             >
               Ver vagas
-            </a>
-            <a
-              href="#perfis"
+            </Link>
+            <Link
+              href="/#perfis"
               className="inline-flex h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
             >
               Entrar ou cadastrar
-            </a>
+            </Link>
           </div>
 
           <dl className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-slate-200 pt-6">
