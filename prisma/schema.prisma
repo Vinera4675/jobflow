@@ -41,7 +41,7 @@ model User {
   clerkId          String            @unique
   name             String
   email            String            @unique
-  role             UserRole
+  role             UserRole?
   candidateProfile CandidateProfile?
   companyProfile   CompanyProfile?
   createdAt        DateTime          @default(now())

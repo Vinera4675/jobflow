@@ -1,31 +1,78 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { requireCurrentDbUser } from "@/lib/current-user";
 
 export const metadata: Metadata = {
   title: "Dashboard | JobFlow",
-  description: "Área protegida do JobFlow para usuários autenticados.",
+  description: "Area protegida do JobFlow para usuarios autenticados.",
 };
 
-const dashboardCards = [
-  {
-    title: "Candidaturas",
-    value: "0",
-    description: "Suas candidaturas aparecerão aqui nas próximas etapas.",
+const dashboardContent = {
+  CANDIDATE: {
+    eyebrow: "Dashboard do candidato",
+    title: "Acompanhe sua jornada de candidaturas.",
+    description:
+      "Este painel sera a base para acompanhar vagas salvas, candidaturas enviadas e status de processos seletivos.",
+    statusTitle: "Conta de candidato",
+    statusDescription:
+      "Seu usuario ja esta sincronizado com o banco e marcado como candidato.",
+    cards: [
+      {
+        title: "Candidaturas",
+        value: "0",
+        description: "Suas candidaturas aparecerao aqui nas proximas etapas.",
+      },
+      {
+        title: "Vagas salvas",
+        value: "0",
+        description: "Em breve voce podera salvar vagas para acompanhar depois.",
+      },
+      {
+        title: "Perfil",
+        value: "Pendente",
+        description: "O perfil completo de candidato ainda sera implementado.",
+      },
+    ],
   },
-  {
-    title: "Vagas salvas",
-    value: "0",
-    description: "Em breve você poderá salvar vagas para acompanhar depois.",
+  COMPANY: {
+    eyebrow: "Dashboard da empresa",
+    title: "Gerencie vagas e candidaturas recebidas.",
+    description:
+      "Este painel sera a base para publicar vagas, revisar candidatos e acompanhar o andamento dos processos.",
+    statusTitle: "Conta de empresa",
+    statusDescription:
+      "Seu usuario ja esta sincronizado com o banco e marcado como empresa.",
+    cards: [
+      {
+        title: "Vagas publicadas",
+        value: "0",
+        description: "As vagas criadas pela empresa aparecerao aqui.",
+      },
+      {
+        title: "Candidatos",
+        value: "0",
+        description: "As candidaturas recebidas serao listadas futuramente.",
+      },
+      {
+        title: "Perfil",
+        value: "Pendente",
+        description: "O perfil completo da empresa ainda sera implementado.",
+      },
+    ],
   },
-  {
-    title: "Perfil",
-    value: "Pendente",
-    description: "Perfis de candidato e empresa ainda serão implementados.",
-  },
-];
+};
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const user = await requireCurrentDbUser();
+
+  if (!user.role) {
+    redirect("/onboarding");
+  }
+
+  const content = dashboardContent[user.role];
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
@@ -33,33 +80,30 @@ export default function DashboardPage() {
         <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-              Área protegida
+              {content.eyebrow}
             </p>
             <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_18rem] lg:items-end">
               <div>
                 <h1 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Bem-vindo ao dashboard do JobFlow.
+                  {content.title}
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-                  Esta página confirma que a autenticação com Clerk está ativa.
-                  Por enquanto, ela serve como base para os futuros painéis de
-                  candidatos e empresas.
+                  {content.description}
                 </p>
               </div>
               <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
                 <p className="text-sm font-semibold text-emerald-800">
-                  Sessão autenticada
+                  {content.statusTitle}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-emerald-900">
-                  Se você chegou aqui pelo navegador, o proxy de proteção de
-                  rota permitiu o acesso.
+                  {content.statusDescription}
                 </p>
               </div>
             </div>
           </section>
 
           <section className="mt-6 grid gap-5 md:grid-cols-3">
-            {dashboardCards.map((card) => (
+            {content.cards.map((card) => (
               <article
                 key={card.title}
                 className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
