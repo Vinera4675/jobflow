@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -98,6 +99,22 @@ export default async function DashboardPage() {
                 <p className="mt-2 text-sm leading-6 text-emerald-900">
                   {content.statusDescription}
                 </p>
+                {user.role === "CANDIDATE" ? (
+                  <Link
+                    href="/dashboard/candidato/perfil"
+                    className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+                  >
+                    Editar perfil
+                  </Link>
+                ) : null}
+                {user.role === "COMPANY" ? (
+                  <Link
+                    href="/dashboard/empresa/perfil"
+                    className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+                  >
+                    Editar perfil
+                  </Link>
+                ) : null}
               </div>
             </div>
           </section>
