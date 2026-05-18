@@ -1,13 +1,29 @@
 import Link from "next/link";
 import {
-  type Job,
+  employmentTypeLabels,
   jobStatusLabels,
-  jobTypeLabels,
-  workModelLabels,
-} from "@/lib/mock-jobs";
+  workModeLabels,
+} from "@/lib/job-schema";
 
 type JobDetailsProps = {
-  job: Job;
+  job: {
+    id: string;
+    title: string;
+    description: string;
+    requirements: string[];
+    location: string;
+    workMode: keyof typeof workModeLabels;
+    employmentType: keyof typeof employmentTypeLabels;
+    salary: string | null;
+    status: keyof typeof jobStatusLabels;
+    createdAt: Date;
+    company: {
+      companyName: string;
+      description: string;
+      location: string;
+      website: string | null;
+    };
+  };
 };
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
@@ -15,6 +31,14 @@ const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
   month: "long",
   year: "numeric",
 });
+
+function getExcerpt(description: string) {
+  if (description.length <= 180) {
+    return description;
+  }
+
+  return `${description.slice(0, 177).trim()}...`;
+}
 
 export function JobDetails({ job }: JobDetailsProps) {
   return (
@@ -28,12 +52,14 @@ export function JobDetails({ job }: JobDetailsProps) {
         </Link>
         <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="text-sm font-medium text-slate-500">{job.company}</p>
+            <p className="text-sm font-medium text-slate-500">
+              {job.company.companyName}
+            </p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
               {job.title}
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              {job.shortDescription}
+              {getExcerpt(job.description)}
             </p>
           </div>
 
@@ -50,10 +76,10 @@ export function JobDetails({ job }: JobDetailsProps) {
         <div className="space-y-8">
           <section>
             <h2 className="text-xl font-semibold text-slate-950">
-              Descrição da vaga
+              Descricao da vaga
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              {job.fullDescription}
+              {job.description}
             </p>
           </section>
 
@@ -74,6 +100,15 @@ export function JobDetails({ job }: JobDetailsProps) {
             </ul>
           </section>
 
+          <section>
+            <h2 className="text-xl font-semibold text-slate-950">
+              Sobre a empresa
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              {job.company.description}
+            </p>
+          </section>
+
           <section
             id="candidatar"
             className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
@@ -82,8 +117,8 @@ export function JobDetails({ job }: JobDetailsProps) {
               Pronto para se candidatar?
             </h2>
             <p className="mt-2 text-sm leading-6 text-slate-700">
-              Este botão ainda é demonstrativo. A autenticação e o envio real
-              da candidatura serão implementados em uma próxima etapa.
+              Este botao ainda e demonstrativo. A autenticacao e o envio real
+              da candidatura serao implementados em uma proxima etapa.
             </p>
             <button
               type="button"
@@ -102,11 +137,11 @@ export function JobDetails({ job }: JobDetailsProps) {
             <div>
               <dt className="text-sm text-slate-500">Empresa</dt>
               <dd className="mt-1 font-semibold text-slate-950">
-                {job.company}
+                {job.company.companyName}
               </dd>
             </div>
             <div>
-              <dt className="text-sm text-slate-500">Localização</dt>
+              <dt className="text-sm text-slate-500">Localizacao</dt>
               <dd className="mt-1 font-semibold text-slate-950">
                 {job.location}
               </dd>
@@ -114,15 +149,23 @@ export function JobDetails({ job }: JobDetailsProps) {
             <div>
               <dt className="text-sm text-slate-500">Modelo de trabalho</dt>
               <dd className="mt-1 font-semibold text-slate-950">
-                {workModelLabels[job.workModel]}
+                {workModeLabels[job.workMode]}
               </dd>
             </div>
             <div>
               <dt className="text-sm text-slate-500">Tipo</dt>
               <dd className="mt-1 font-semibold text-slate-950">
-                {jobTypeLabels[job.type]}
+                {employmentTypeLabels[job.employmentType]}
               </dd>
             </div>
+            {job.salary ? (
+              <div>
+                <dt className="text-sm text-slate-500">Salario</dt>
+                <dd className="mt-1 font-semibold text-slate-950">
+                  {job.salary}
+                </dd>
+              </div>
+            ) : null}
             <div>
               <dt className="text-sm text-slate-500">Status</dt>
               <dd className="mt-1 font-semibold text-slate-950">
@@ -132,8 +175,8 @@ export function JobDetails({ job }: JobDetailsProps) {
             <div>
               <dt className="text-sm text-slate-500">Criada em</dt>
               <dd className="mt-1 font-semibold text-slate-950">
-                <time dateTime={job.createdAt}>
-                  {dateFormatter.format(new Date(`${job.createdAt}T00:00:00`))}
+                <time dateTime={job.createdAt.toISOString()}>
+                  {dateFormatter.format(job.createdAt)}
                 </time>
               </dd>
             </div>

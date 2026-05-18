@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JobDetails } from "@/components/JobDetails";
-import { getJobById, jobs } from "@/lib/mock-jobs";
+import { prisma } from "@/lib/prisma";
 
 type JobDetailsPageProps = {
   params: Promise<{
@@ -11,33 +11,48 @@ type JobDetailsPageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return jobs.map((job) => ({
-    id: job.id,
-  }));
+export const dynamic = "force-dynamic";
+
+async function getPublicJob(id: string) {
+  return prisma.job.findFirst({
+    where: {
+      id,
+      status: "OPEN",
+    },
+    include: {
+      company: {
+        select: {
+          companyName: true,
+          description: true,
+          location: true,
+          website: true,
+        },
+      },
+    },
+  });
 }
 
 export async function generateMetadata({
   params,
 }: JobDetailsPageProps): Promise<Metadata> {
   const { id } = await params;
-  const job = getJobById(id);
+  const job = await getPublicJob(id);
 
   if (!job) {
     return {
-      title: "Vaga não encontrada | JobFlow",
+      title: "Vaga nao encontrada | JobFlow",
     };
   }
 
   return {
     title: `${job.title} | JobFlow`,
-    description: job.shortDescription,
+    description: job.description,
   };
 }
 
 export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
   const { id } = await params;
-  const job = getJobById(id);
+  const job = await getPublicJob(id);
 
   if (!job) {
     notFound();
