@@ -1,9 +1,24 @@
+import { SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { ApplicationForm } from "@/components/ApplicationForm";
+import { applicationStatusLabels } from "@/lib/application-schema";
 import {
   employmentTypeLabels,
   jobStatusLabels,
   workModeLabels,
 } from "@/lib/job-schema";
+
+export type JobApplicationState =
+  | { kind: "signedOut" }
+  | { kind: "needsOnboarding" }
+  | { kind: "company" }
+  | { kind: "missingCandidateProfile" }
+  | {
+      kind: "alreadyApplied";
+      status: keyof typeof applicationStatusLabels;
+      createdAt: Date;
+    }
+  | { kind: "canApply" };
 
 type JobDetailsProps = {
   job: {
@@ -24,6 +39,7 @@ type JobDetailsProps = {
       website: string | null;
     };
   };
+  applicationState: JobApplicationState;
 };
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
@@ -40,7 +56,150 @@ function getExcerpt(description: string) {
   return `${description.slice(0, 177).trim()}...`;
 }
 
-export function JobDetails({ job }: JobDetailsProps) {
+function ApplicationSection({
+  jobId,
+  state,
+}: {
+  jobId: string;
+  state: JobApplicationState;
+}) {
+  if (state.kind === "signedOut") {
+    return (
+      <section
+        id="candidatar"
+        className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
+      >
+        <h2 className="text-lg font-semibold text-slate-950">
+          Entre para se candidatar
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Voce precisa estar logado como candidato para enviar uma candidatura
+          para esta vaga.
+        </p>
+        <SignInButton mode="modal" forceRedirectUrl={`/vagas/${jobId}`}>
+          <button
+            type="button"
+            className="mt-5 inline-flex h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+          >
+            Entrar para se candidatar
+          </button>
+        </SignInButton>
+      </section>
+    );
+  }
+
+  if (state.kind === "needsOnboarding") {
+    return (
+      <section
+        id="candidatar"
+        className="rounded-lg border border-amber-200 bg-amber-50 p-5"
+      >
+        <h2 className="text-lg font-semibold text-slate-950">
+          Escolha seu tipo de conta
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Antes de se candidatar, informe se voce quer usar o JobFlow como
+          candidato ou empresa.
+        </p>
+        <Link
+          href="/onboarding"
+          className="mt-5 inline-flex h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+        >
+          Ir para onboarding
+        </Link>
+      </section>
+    );
+  }
+
+  if (state.kind === "company") {
+    return (
+      <section
+        id="candidatar"
+        className="rounded-lg border border-amber-200 bg-amber-50 p-5"
+      >
+        <h2 className="text-lg font-semibold text-slate-950">
+          Empresas nao podem se candidatar
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Esta conta esta marcada como empresa. Use o dashboard para publicar e
+          gerenciar vagas.
+        </p>
+        <Link
+          href="/dashboard/empresa/vagas"
+          className="mt-5 inline-flex h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+        >
+          Ver vagas da empresa
+        </Link>
+      </section>
+    );
+  }
+
+  if (state.kind === "missingCandidateProfile") {
+    return (
+      <section
+        id="candidatar"
+        className="rounded-lg border border-amber-200 bg-amber-50 p-5"
+      >
+        <h2 className="text-lg font-semibold text-slate-950">
+          Complete seu perfil de candidato
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Para enviar candidaturas, primeiro cadastre suas informacoes
+          profissionais no perfil de candidato.
+        </p>
+        <Link
+          href="/dashboard/candidato/perfil"
+          className="mt-5 inline-flex h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+        >
+          Criar perfil de candidato
+        </Link>
+      </section>
+    );
+  }
+
+  if (state.kind === "alreadyApplied") {
+    return (
+      <section
+        id="candidatar"
+        className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
+      >
+        <h2 className="text-lg font-semibold text-slate-950">
+          Candidatura ja enviada
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Voce se candidatou em{" "}
+          <time dateTime={state.createdAt.toISOString()}>
+            {dateFormatter.format(state.createdAt)}
+          </time>
+          . Status atual:{" "}
+          <span className="font-semibold text-emerald-800">
+            {applicationStatusLabels[state.status]}
+          </span>
+          .
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section
+      id="candidatar"
+      className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
+    >
+      <h2 className="text-lg font-semibold text-slate-950">
+        Enviar candidatura
+      </h2>
+      <p className="mt-2 text-sm leading-6 text-slate-700">
+        Inclua uma mensagem opcional para contextualizar seu interesse na vaga.
+      </p>
+      <div className="mt-5">
+        <ApplicationForm jobId={jobId} />
+      </div>
+    </section>
+  );
+}
+
+export function JobDetails({ job, applicationState }: JobDetailsProps) {
   return (
     <article className="rounded-lg border border-slate-200 bg-white shadow-sm">
       <div className="border-b border-slate-200 px-5 py-6 sm:px-8 sm:py-8">
@@ -109,24 +268,7 @@ export function JobDetails({ job }: JobDetailsProps) {
             </p>
           </section>
 
-          <section
-            id="candidatar"
-            className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
-          >
-            <h2 className="text-lg font-semibold text-slate-950">
-              Pronto para se candidatar?
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-700">
-              Este botao ainda e demonstrativo. A autenticacao e o envio real
-              da candidatura serao implementados em uma proxima etapa.
-            </p>
-            <button
-              type="button"
-              className="mt-5 inline-flex h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
-            >
-              Candidatar-se
-            </button>
-          </section>
+          <ApplicationSection jobId={job.id} state={applicationState} />
         </div>
 
         <aside className="h-fit rounded-lg border border-slate-200 bg-slate-50 p-5">

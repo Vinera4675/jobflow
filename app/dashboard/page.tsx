@@ -100,12 +100,20 @@ export default async function DashboardPage() {
                   {content.statusDescription}
                 </p>
                 {user.role === "CANDIDATE" ? (
-                  <Link
-                    href="/dashboard/candidato/perfil"
-                    className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
-                  >
-                    Editar perfil
-                  </Link>
+                  <div className="mt-5 flex flex-col gap-2">
+                    <Link
+                      href="/dashboard/candidato/candidaturas"
+                      className="inline-flex h-10 items-center justify-center rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+                    >
+                      Minhas candidaturas
+                    </Link>
+                    <Link
+                      href="/dashboard/candidato/perfil"
+                      className="inline-flex h-10 items-center justify-center rounded-md border border-emerald-300 bg-white px-4 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+                    >
+                      Editar perfil
+                    </Link>
+                  </div>
                 ) : null}
                 {user.role === "COMPANY" ? (
                   <div className="mt-5 flex flex-col gap-2">
