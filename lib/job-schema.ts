@@ -14,8 +14,8 @@ export const employmentTypeOptions = [
 ] as const;
 
 export const jobStatusLabels = {
-  OPEN: "Aberta",
-  CLOSED: "Encerrada",
+  OPEN: "OPEN",
+  CLOSED: "CLOSED",
 } as const;
 
 export const workModeLabels = Object.fromEntries(

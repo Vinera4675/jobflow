@@ -42,6 +42,13 @@ export default async function CompanyJobsPage() {
         orderBy: {
           createdAt: "desc",
         },
+        include: {
+          _count: {
+            select: {
+              applications: true,
+            },
+          },
+        },
       },
     },
   });
@@ -144,10 +151,36 @@ export default async function CompanyJobsPage() {
                         <div className="shrink-0 text-sm text-slate-500 md:text-right">
                           <p>{job.location}</p>
                           {job.salary ? <p className="mt-1">{job.salary}</p> : null}
+                          <p className="mt-1">
+                            {job._count.applications} candidato
+                            {job._count.applications === 1 ? "" : "s"}
+                          </p>
                           <time dateTime={job.createdAt.toISOString()}>
                             {dateFormatter.format(job.createdAt)}
                           </time>
                         </div>
+                      </div>
+                      <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row">
+                        <Link
+                          href={`/dashboard/empresa/vagas/${job.id}/editar`}
+                          className="inline-flex h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+                        >
+                          Editar vaga
+                        </Link>
+                        <Link
+                          href={`/dashboard/empresa/vagas/${job.id}/candidatos`}
+                          className="inline-flex h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+                        >
+                          Ver candidatos
+                        </Link>
+                        {job.status === "OPEN" ? (
+                          <Link
+                            href={`/vagas/${job.id}`}
+                            className="inline-flex h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
+                          >
+                            Ver vaga publica
+                          </Link>
+                        ) : null}
                       </div>
                     </article>
                   ))}
