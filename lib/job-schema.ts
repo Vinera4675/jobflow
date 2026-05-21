@@ -9,8 +9,8 @@ export const workModeOptions = [
 export const employmentTypeOptions = [
   { value: "INTERNSHIP", label: "Estagio" },
   { value: "JUNIOR", label: "Junior" },
-  { value: "FULL_TIME", label: "Full-time" },
-  { value: "PART_TIME", label: "Part-time" },
+  { value: "FULL_TIME", label: "Periodo integral" },
+  { value: "PART_TIME", label: "Meio periodo" },
 ] as const;
 
 export const jobStatusLabels = {

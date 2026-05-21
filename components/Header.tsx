@@ -1,5 +1,5 @@
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { HeaderAuth } from "@/components/HeaderAuth";
 
 const navItems = [
   { href: "/#como-funciona", label: "Como funciona" },
@@ -39,34 +39,7 @@ export function Header() {
           >
             Ver vagas
           </Link>
-          <Show when="signed-out">
-            <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-              <button
-                type="button"
-                className="hidden rounded-md px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 sm:inline-flex"
-              >
-                Entrar
-              </button>
-            </SignInButton>
-            <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
-              <button
-                type="button"
-                className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
-              >
-                Cadastrar
-              </button>
-            </SignUpButton>
-          </Show>
-          <Show when="signed-in">
-            <Link
-              href="/dashboard"
-              prefetch={false}
-              className="hidden rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:inline-flex"
-            >
-              Dashboard
-            </Link>
-            <UserButton />
-          </Show>
+          <HeaderAuth />
         </div>
       </div>
     </header>
