@@ -1,5 +1,8 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import { defineConfig } from "prisma/config";
+
+dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env" });
 
 const databaseUrl =
   process.env.PRISMA_USE_DIRECT_URL === "1"
@@ -7,7 +10,7 @@ const databaseUrl =
     : process.env.DATABASE_URL;
 
 if (!databaseUrl) {
-  throw new Error("DATABASE_URL ou DIRECT_URL não encontrada");
+  throw new Error("DATABASE_URL ou DIRECT_URL nao encontrada");
 }
 
 export default defineConfig({
