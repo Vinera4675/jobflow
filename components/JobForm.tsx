@@ -166,7 +166,7 @@ export function JobForm({
             id="requirements"
             rows={4}
             placeholder={
-              "Ex:\nReact e TypeScript\nNocoes de APIs REST\nBoa comunicacao"
+              "Ex:\nExperiencia na area\nBoa comunicacao\nOrganizacao"
             }
             className={inputClassName}
             {...register("requirements")}

@@ -110,8 +110,8 @@ export default async function CompanyJobsPage() {
                     Nenhuma vaga criada ainda
                   </h2>
                   <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-                    Crie a primeira vaga da empresa para comecar a estruturar o
-                    fluxo de candidaturas.
+                    Crie a primeira vaga da empresa para receber candidatos e
+                    acompanhar o processo seletivo.
                   </p>
                   <Link
                     href="/dashboard/empresa/vagas/nova"

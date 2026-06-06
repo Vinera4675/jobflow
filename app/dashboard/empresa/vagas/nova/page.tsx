@@ -46,8 +46,8 @@ export default async function NewCompanyJobPage() {
               Publique uma oportunidade.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              Preencha os dados principais da vaga. Nesta etapa, a vaga sera
-              criada como aberta e vinculada a empresa logada.
+              Preencha os dados principais da vaga para receber candidaturas de
+              profissionais interessados.
             </p>
           </section>
 

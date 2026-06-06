@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "JobFlow | Vagas e candidaturas",
   description:
-    "Aplicação full stack para conectar candidatos e empresas em processos de candidatura.",
+    "Conecte candidatos e empresas em processos de candidatura simples e organizados.",
 };
 
 export default function RootLayout({

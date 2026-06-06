@@ -19,7 +19,7 @@ const roleOptions = [
     highlights: [
       "Buscar oportunidades",
       "Acompanhar status",
-      "Completar perfil futuramente",
+      "Completar perfil profissional",
     ],
     action: "Continuar como candidato",
   },
@@ -29,7 +29,7 @@ const roleOptions = [
     description:
       "Publique vagas, acompanhe candidatos e gerencie processos seletivos.",
     highlights: [
-      "Publicar vagas futuramente",
+      "Publicar vagas",
       "Visualizar candidaturas",
       "Completar perfil da empresa",
     ],
@@ -57,9 +57,8 @@ export default async function OnboardingPage() {
               Como voce quer usar o JobFlow?
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              Escolha o tipo da sua conta para liberar o dashboard correto.
-              Perfis completos de candidato e empresa serao criados em uma
-              proxima etapa.
+              Escolha o tipo da sua conta para acessar o painel adequado e
+              continuar com as ferramentas certas para o seu perfil.
             </p>
           </section>
 

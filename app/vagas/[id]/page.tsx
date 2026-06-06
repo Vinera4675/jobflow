@@ -129,7 +129,7 @@ export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="py-10 sm:py-14">
+      <main className="py-10 sm:py-14 lg:py-16">
         <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <JobDetails job={job} applicationState={applicationState} />
         </div>

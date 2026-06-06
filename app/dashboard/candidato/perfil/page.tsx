@@ -41,9 +41,8 @@ export default async function CandidateProfilePage() {
               Complete suas informacoes profissionais.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              Esta tela salva os dados principais do seu perfil no banco. Ainda
-              nao ha candidatura real conectada, mas a base para o fluxo do
-              candidato ja fica pronta.
+              Mantenha seu perfil atualizado para enviar candidaturas e destacar
+              suas informacoes profissionais para empresas.
             </p>
           </section>
 

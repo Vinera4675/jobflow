@@ -66,8 +66,8 @@ export function CompanyProfileForm({
             {hasProfile ? "Editar perfil" : "Criar perfil"}
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Essas informacoes serao usadas futuramente para publicar vagas e
-            apresentar a empresa para candidatos.
+            Apresente sua empresa para candidatos e mantenha os dados principais
+            prontos para a publicacao de vagas.
           </p>
         </div>
         <span className="w-fit rounded-md bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-100">

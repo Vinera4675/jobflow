@@ -1,26 +1,30 @@
-const technologies = ["Next.js", "TypeScript", "Tailwind CSS"];
+import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-white">
+    <footer className="border-t border-slate-200 bg-white text-slate-700">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <div>
-          <p className="text-lg font-semibold">JobFlow</p>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">
-            Projeto de portfólio para praticar uma aplicação full stack de vagas
-            e candidaturas.
+          <p className="text-lg font-semibold text-slate-950">JobFlow</p>
+          <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
+            Conectando candidatos e empresas com um fluxo simples para publicar
+            vagas, enviar candidaturas e acompanhar processos.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((technology) => (
-            <span
-              key={technology}
-              className="rounded-md border border-white/15 px-3 py-1 text-xs font-semibold text-slate-200"
-            >
-              {technology}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-600">
+          <Link
+            href="/vagas"
+            className="transition-colors hover:text-emerald-700"
+          >
+            Vagas
+          </Link>
+          <Link
+            href="/dashboard"
+            className="transition-colors hover:text-emerald-700"
+          >
+            Dashboard
+          </Link>
         </div>
       </div>
     </footer>

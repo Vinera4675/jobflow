@@ -66,8 +66,8 @@ export function CandidateProfileForm({
             {hasProfile ? "Editar perfil" : "Criar perfil"}
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Essas informacoes serao usadas futuramente para candidaturas e para
-            destacar suas habilidades para empresas.
+            Mantenha suas informacoes profissionais atualizadas para se
+            candidatar e apresentar melhor suas habilidades para empresas.
           </p>
         </div>
         <span className="w-fit rounded-md bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
@@ -115,7 +115,7 @@ export function CandidateProfileForm({
           <textarea
             id="skills"
             rows={3}
-            placeholder="Ex: React, Next.js, TypeScript, Tailwind CSS"
+            placeholder="Ex: Comunicacao, atendimento ao cliente, planilhas, organizacao"
             className={inputClassName}
             {...register("skills")}
           />

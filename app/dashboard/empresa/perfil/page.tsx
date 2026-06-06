@@ -41,8 +41,8 @@ export default async function CompanyProfilePage() {
               Complete as informacoes da empresa.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-              Esta tela salva os dados principais da empresa no banco. A criacao
-              de vagas sera conectada em uma proxima etapa.
+              Mantenha os dados da empresa atualizados para publicar vagas e se
+              apresentar com clareza para candidatos.
             </p>
           </section>
 

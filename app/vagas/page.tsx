@@ -92,27 +92,25 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
       <Header />
       <main>
         <section className="border-b border-slate-200 bg-white">
-          <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-              Vagas publicas
-            </p>
-            <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_20rem] lg:items-end">
-              <div>
-                <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                  Encontre oportunidades para dar o proximo passo.
-                </h1>
-                <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
-                  Esta listagem mostra vagas abertas cadastradas por empresas no
-                  banco de dados do JobFlow.
-                </p>
-              </div>
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
-                <p className="text-3xl font-semibold text-slate-950">
+          <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                Vagas publicas
+              </p>
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                Encontre oportunidades para dar o proximo passo.
+              </h1>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600">
+                Busque oportunidades de estagio e desenvolvimento publicadas
+                por empresas que estao contratando.
+              </p>
+              <div className="mx-auto mt-6 flex w-fit items-baseline gap-2 rounded-lg border border-slate-200 bg-slate-50 px-5 py-3">
+                <span className="text-2xl font-semibold text-slate-950">
                   {jobs.length}
-                </p>
-                <p className="mt-1 text-sm text-slate-500">
+                </span>
+                <span className="text-sm text-slate-500">
                   vagas abertas no momento
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -122,7 +120,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
           <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
             <form
               action="/vagas"
-              className="grid gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 shadow-sm lg:grid-cols-[1.25fr_1fr_1fr_1fr_auto]"
+              className="grid items-end gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 shadow-sm sm:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1fr_auto]"
             >
               <div>
                 <label
@@ -202,17 +200,17 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                 />
               </div>
 
-              <div className="flex flex-col gap-2 lg:justify-end">
+              <div className="flex flex-col gap-2 sm:col-span-2 sm:flex-row lg:col-span-1 lg:flex-col">
                 <button
                   type="submit"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+                  className="inline-flex h-10 flex-1 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 lg:flex-none"
                 >
                   Filtrar
                 </button>
                 {hasFilters ? (
                   <Link
                     href="/vagas"
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-100"
+                    className="inline-flex h-10 flex-1 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-100 lg:flex-none"
                   >
                     Limpar
                   </Link>
@@ -222,7 +220,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
           </div>
         </section>
 
-        <section className="py-12 sm:py-16">
+        <section className="py-10 sm:py-14 lg:py-16">
           <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
             {jobs.length === 0 ? (
               <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm">
