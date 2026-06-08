@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JobDetailsAuthGate } from "@/components/JobDetailsAuthGate";
 import {
   JobDetails,
   type JobApplicationState,
@@ -118,20 +119,27 @@ export async function generateMetadata({
 
 export default async function JobDetailsPage({ params }: JobDetailsPageProps) {
   const { id } = await params;
-  const [job, user] = await Promise.all([getPublicJob(id), getCurrentDbUser()]);
+  const job = await getPublicJob(id);
 
   if (!job) {
     notFound();
   }
 
-  const applicationState = await getApplicationState(id, user);
+  const user = await getCurrentDbUser();
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
       <main className="py-10 sm:py-14 lg:py-16">
         <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
-          <JobDetails job={job} applicationState={applicationState} />
+          {user ? (
+            <JobDetails
+              job={job}
+              applicationState={await getApplicationState(id, user)}
+            />
+          ) : (
+            <JobDetailsAuthGate job={job} />
+          )}
         </div>
       </main>
       <Footer />

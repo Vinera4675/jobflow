@@ -1,6 +1,6 @@
-import { SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { ApplicationForm } from "@/components/ApplicationForm";
+import { ClerkAuthButton } from "@/components/ClerkAuthButton";
 import { applicationStatusLabels } from "@/lib/application-schema";
 import {
   employmentTypeLabels,
@@ -76,14 +76,13 @@ function ApplicationSection({
           Voce precisa estar logado como candidato para enviar uma candidatura
           para esta vaga.
         </p>
-        <SignInButton mode="modal" forceRedirectUrl={`/vagas/${jobId}`}>
-          <button
-            type="button"
-            className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto"
-          >
-            Entrar para se candidatar
-          </button>
-        </SignInButton>
+        <ClerkAuthButton
+          action="signIn"
+          forceRedirectUrl={`/vagas/${jobId}`}
+          className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto"
+        >
+          Entrar para se candidatar
+        </ClerkAuthButton>
       </section>
     );
   }

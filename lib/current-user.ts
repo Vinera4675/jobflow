@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
@@ -26,6 +26,12 @@ function getDisplayName(clerkUser: ClerkUser, email: string) {
 }
 
 export async function getCurrentDbUser() {
+  const { userId } = await auth();
+
+  if (!userId) {
+    return null;
+  }
+
   const clerkUser = await currentUser();
 
   if (!clerkUser) {
@@ -45,14 +51,14 @@ export async function getCurrentDbUser() {
 
   return prisma.user.upsert({
     where: {
-      clerkId: clerkUser.id,
+      clerkId: userId,
     },
     update: {
       name,
       email,
     },
     create: {
-      clerkId: clerkUser.id,
+      clerkId: userId,
       name,
       email,
     },
