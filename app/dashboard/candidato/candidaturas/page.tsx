@@ -49,6 +49,7 @@ export default async function CandidateApplicationsPage() {
             select: {
               id: true,
               title: true,
+              status: true,
               company: {
                 select: {
                   companyName: true,
@@ -72,13 +73,13 @@ export default async function CandidateApplicationsPage() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-                  Area do candidato
+                  Área do candidato
                 </p>
                 <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   Minhas candidaturas
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-                  Acompanhe as vagas para as quais voce se candidatou e o status
+                  Acompanhe as vagas para as quais você se candidatou e o status
                   atual de cada processo.
                 </p>
               </div>
@@ -97,7 +98,7 @@ export default async function CandidateApplicationsPage() {
                 Nenhuma candidatura enviada ainda
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-                Quando voce se candidatar a uma vaga, ela aparecera aqui com a
+                Quando você se candidatar a uma vaga, ela aparecerá aqui com a
                 mensagem enviada, data e status do processo.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
@@ -160,12 +161,18 @@ export default async function CandidateApplicationsPage() {
                   </div>
 
                   <div className="mt-6 border-t border-slate-200 pt-5">
-                    <Link
-                      href={`/vagas/${application.job.id}`}
-                      className="inline-flex h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
-                    >
-                      Ver detalhes da vaga
-                    </Link>
+                    {application.job.status === "OPEN" ? (
+                      <Link
+                        href={`/vagas/${application.job.id}`}
+                        className="inline-flex h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
+                      >
+                        Ver detalhes da vaga
+                      </Link>
+                    ) : (
+                      <span className="inline-flex h-11 items-center rounded-md bg-slate-100 px-4 text-sm font-semibold text-slate-600">
+                        Vaga encerrada
+                      </span>
+                    )}
                   </div>
                 </article>
               ))}

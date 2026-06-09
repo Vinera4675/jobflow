@@ -6,7 +6,7 @@ import { requireCurrentDbUser } from "@/lib/current-user";
 import { selectUserRole } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Onboarding | JobFlow",
+  title: "Configuração da conta | JobFlow",
   description: "Escolha o tipo de conta para continuar no JobFlow.",
 };
 
@@ -54,7 +54,7 @@ export default async function OnboardingPage() {
               Primeiro acesso
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Como voce quer usar o JobFlow?
+              Como você quer usar o JobFlow?
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
               Escolha o tipo da sua conta para acessar o painel adequado e

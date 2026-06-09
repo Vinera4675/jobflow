@@ -6,8 +6,8 @@ const optionalUrl = z
     z
       .string()
       .trim()
-      .url("Informe uma URL valida.")
-      .max(255, "A URL deve ter no maximo 255 caracteres."),
+      .url("Informe uma URL válida.")
+      .max(255, "A URL deve ter no máximo 255 caracteres."),
   ]);
 
 export const candidateProfileSchema = z
@@ -15,18 +15,18 @@ export const candidateProfileSchema = z
     title: z
       .string()
       .trim()
-      .min(2, "Informe um titulo profissional.")
-      .max(80, "O titulo deve ter no maximo 80 caracteres."),
+      .min(2, "Informe um título profissional.")
+      .max(80, "O título deve ter no máximo 80 caracteres."),
     bio: z
       .string()
       .trim()
       .min(20, "Escreva uma bio com pelo menos 20 caracteres.")
-      .max(1000, "A bio deve ter no maximo 1000 caracteres."),
+      .max(1000, "A bio deve ter no máximo 1000 caracteres."),
     skills: z
       .string()
       .trim()
       .min(2, "Informe pelo menos uma habilidade.")
-      .max(500, "A lista de habilidades deve ter no maximo 500 caracteres."),
+      .max(500, "A lista de habilidades deve ter no máximo 500 caracteres."),
     githubUrl: optionalUrl,
     linkedinUrl: optionalUrl,
     resumeUrl: optionalUrl,
@@ -35,7 +35,7 @@ export const candidateProfileSchema = z
     if (parseSkills(values.skills).length === 0) {
       context.addIssue({
         code: "custom",
-        message: "Informe pelo menos uma habilidade valida.",
+        message: "Informe pelo menos uma habilidade válida.",
         path: ["skills"],
       });
     }

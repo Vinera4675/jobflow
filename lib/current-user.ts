@@ -44,7 +44,7 @@ export async function getCurrentDbUser() {
   );
 
   if (!email) {
-    throw new Error("O usuario autenticado no Clerk nao possui email.");
+    throw new Error("O usuário autenticado no Clerk não possui e-mail.");
   }
 
   const name = getDisplayName(clerkUser, email);

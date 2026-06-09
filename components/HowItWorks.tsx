@@ -3,19 +3,19 @@ const steps = [
     number: "01",
     title: "Empresas publicam vagas",
     description:
-      "Cada empresa cadastra oportunidades com informacoes claras sobre cargo, formato de trabalho e requisitos.",
+      "Cada empresa cadastra oportunidades com informações claras sobre cargo, formato de trabalho e requisitos.",
   },
   {
     number: "02",
     title: "Candidatos encontram oportunidades",
     description:
-      "Os candidatos visualizam vagas relevantes e iniciam candidaturas com um fluxo objetivo.",
+      "Os candidatos encontram oportunidades relevantes e enviam suas candidaturas.",
   },
   {
     number: "03",
     title: "Status ficam organizados",
     description:
-      "Candidaturas podem ser acompanhadas por paineis separados para candidatos e empresas.",
+      "Candidatos e empresas acompanham cada etapa em painéis organizados.",
   },
 ];
 
@@ -31,11 +31,11 @@ export function HowItWorks() {
             Como funciona
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Um fluxo simples para sair da vaga publicada ate a candidatura.
+            Da publicação da vaga ao acompanhamento da candidatura.
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Empresas publicam oportunidades, candidatos enviam suas informacoes
-            e todos acompanham o andamento em paineis organizados.
+            Empresas publicam oportunidades, candidatos apresentam seus perfis
+            e todos acompanham o andamento do processo em um só lugar.
           </p>
         </div>
 

@@ -8,7 +8,7 @@ import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Dashboard | JobFlow",
-  description: "Area protegida do JobFlow para usuarios autenticados.",
+  description: "Área protegida do JobFlow para usuários autenticados.",
 };
 
 export const dynamic = "force-dynamic";
@@ -39,14 +39,14 @@ async function getCandidateDashboardData(userId: string) {
           description: "Crie seu perfil e candidate-se a vagas abertas.",
         },
         {
-          title: "Em analise",
+          title: "Em análise",
           value: 0,
-          description: "Candidaturas marcadas como REVISANDO pela empresa.",
+          description: "Candidaturas que estão sendo avaliadas pelas empresas.",
         },
         {
           title: "Aprovadas",
           value: 0,
-          description: "Candidaturas aprovadas aparecerao aqui.",
+          description: "Candidaturas aprovadas aparecerão aqui.",
         },
       ] satisfies DashboardCard[],
     };
@@ -82,14 +82,14 @@ async function getCandidateDashboardData(userId: string) {
         description: "Candidaturas enviadas para vagas no JobFlow.",
       },
       {
-        title: "Em analise",
+        title: "Em análise",
         value: reviewingApplications,
-        description: "Processos que a empresa marcou como REVISANDO.",
+        description: "Processos que estão sendo avaliados pelas empresas.",
       },
       {
         title: "Aprovadas",
         value: approvedApplications,
-        description: "Candidaturas marcadas como APROVADO.",
+        description: "Candidaturas aprovadas pelas empresas.",
       },
     ] satisfies DashboardCard[],
   };
@@ -117,12 +117,12 @@ async function getCompanyDashboardData(userId: string) {
         {
           title: "Vagas abertas",
           value: 0,
-          description: "Vagas OPEN aparecem na listagem publica.",
+          description: "As vagas abertas aparecem na listagem pública.",
         },
         {
           title: "Candidaturas recebidas",
           value: 0,
-          description: "Candidaturas recebidas aparecerao aqui.",
+          description: "Candidaturas recebidas aparecerão aqui.",
         },
       ] satisfies DashboardCard[],
     };
@@ -155,12 +155,12 @@ async function getCompanyDashboardData(userId: string) {
       {
         title: "Total de vagas",
         value: totalJobs,
-        description: "Vagas criadas pela empresa logada.",
+        description: "Todas as vagas publicadas pela sua empresa.",
       },
       {
         title: "Vagas abertas",
         value: openJobs,
-        description: "Vagas OPEN visiveis para candidatos.",
+        description: "Oportunidades atualmente visíveis para candidatos.",
       },
       {
         title: "Candidaturas recebidas",
@@ -224,7 +224,7 @@ export default async function DashboardPage() {
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
                   {isCandidate
-                    ? "Veja seus numeros principais e acesse rapidamente as vagas abertas e seu perfil profissional."
+                    ? "Veja seus números principais e acesse rapidamente as vagas abertas e seu perfil profissional."
                     : "Monitore vagas criadas, oportunidades abertas e candidaturas recebidas pela empresa."}
                 </p>
               </div>
@@ -235,8 +235,8 @@ export default async function DashboardPage() {
                 </p>
                 <p className="mt-2 text-sm leading-6 text-emerald-900">
                   {data.hasProfile
-                    ? "Perfil criado e pronto para continuar o fluxo."
-                    : "Complete seu perfil para liberar melhor o fluxo do dashboard."}
+                    ? "Seu perfil está pronto para usar todos os recursos da conta."
+                    : "Complete seu perfil para começar a usar todos os recursos da conta."}
                 </p>
                 {isCandidate ? (
                   <div className="mt-5 flex flex-col gap-2">

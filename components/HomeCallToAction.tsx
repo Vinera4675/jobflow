@@ -9,10 +9,10 @@ export function HomeCallToAction() {
             Comece agora
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
-            Encontre oportunidades ou publique sua proxima vaga.
+            Encontre oportunidades ou publique sua próxima vaga.
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-slate-600">
-            Acesse as vagas disponiveis ou entre na sua conta para acompanhar
+            Acesse as vagas disponíveis ou entre na sua conta para acompanhar
             candidaturas e gerenciar processos seletivos.
           </p>
         </div>
@@ -22,7 +22,7 @@ export function HomeCallToAction() {
             href="/vagas"
             className="inline-flex h-12 w-full items-center justify-center rounded-md bg-emerald-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto"
           >
-            Ver vagas disponiveis
+            Ver vagas disponíveis
           </Link>
           <Link
             href="/dashboard"

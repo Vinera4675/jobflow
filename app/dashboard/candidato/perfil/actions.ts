@@ -28,7 +28,7 @@ export async function saveCandidateProfile(
   if (user.role !== "CANDIDATE") {
     return {
       success: false,
-      message: "Apenas usuarios candidatos podem editar este perfil.",
+      message: "Apenas usuários candidatos podem editar este perfil.",
     };
   }
 

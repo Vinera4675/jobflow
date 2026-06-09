@@ -4,9 +4,9 @@ const userTypes = [
   {
     title: "Para candidatos",
     description:
-      "Encontre vagas, envie candidaturas e acompanhe cada etapa sem perder o historico das oportunidades.",
+      "Encontre vagas, envie candidaturas e acompanhe cada etapa sem perder o histórico das oportunidades.",
     items: [
-      "Perfil com informacoes profissionais",
+      "Perfil com informações profissionais",
       "Lista de vagas com detalhes objetivos",
       "Painel para acompanhar candidaturas",
     ],
@@ -16,11 +16,11 @@ const userTypes = [
   {
     title: "Para empresas",
     description:
-      "Publique vagas, receba candidatos e organize o andamento do processo em um painel proprio.",
+      "Publique vagas, receba candidatos e organize o andamento do processo em um painel próprio.",
     items: [
       "Cadastro de vagas por empresa",
-      "Visualizacao de candidatos inscritos",
-      "Atualizacao de status das candidaturas",
+      "Visualização de candidatos inscritos",
+      "Atualização do status das candidaturas",
     ],
     action: "Acessar painel da empresa",
     href: "/dashboard",
@@ -36,11 +36,11 @@ export function UserTypeCards() {
             Para quem usa
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Uma experiencia pensada para os dois lados da contratacao.
+            Uma experiência pensada para os dois lados da contratação.
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
             Candidatos encontram oportunidades com clareza, enquanto empresas
-            organizam vagas e acompanham candidatos em um so lugar.
+            organizam vagas e acompanham candidatos em um só lugar.
           </p>
         </div>
 

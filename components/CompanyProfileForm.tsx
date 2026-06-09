@@ -67,7 +67,7 @@ export function CompanyProfileForm({
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
             Apresente sua empresa para candidatos e mantenha os dados principais
-            prontos para a publicacao de vagas.
+            prontos para a publicação de vagas.
           </p>
         </div>
         <span className="w-fit rounded-md bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-100">
@@ -94,7 +94,7 @@ export function CompanyProfileForm({
 
         <div>
           <label htmlFor="description" className={labelClassName}>
-            Descricao
+            Descrição
           </label>
           <textarea
             id="description"
@@ -127,12 +127,12 @@ export function CompanyProfileForm({
 
           <div>
             <label htmlFor="location" className={labelClassName}>
-              Localizacao
+              Localização
             </label>
             <input
               id="location"
               type="text"
-              placeholder="Ex: Sao Paulo, SP"
+              placeholder="Ex: São Paulo, SP"
               className={inputClassName}
               {...register("location")}
             />

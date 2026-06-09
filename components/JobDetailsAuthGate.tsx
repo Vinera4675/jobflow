@@ -24,7 +24,7 @@ export function JobDetailsAuthGate({ job }: JobDetailsAuthGateProps) {
       </h1>
       <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
         Esta oportunidade foi publicada por {job.company.companyName}. Acesse
-        sua conta para consultar a descricao completa, requisitos e enviar sua
+        sua conta para consultar a descrição completa, requisitos e enviar sua
         candidatura quando seu perfil permitir.
       </p>
 
@@ -49,7 +49,7 @@ export function JobDetailsAuthGate({ job }: JobDetailsAuthGateProps) {
         href="/vagas"
         className="mt-6 inline-flex text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-800"
       >
-        Voltar para vagas disponiveis
+        Voltar para vagas disponíveis
       </Link>
     </section>
   );

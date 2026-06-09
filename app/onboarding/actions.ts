@@ -19,7 +19,7 @@ export async function selectUserRole(formData: FormData) {
   const role = formData.get("role");
 
   if (!isUserRoleInput(role)) {
-    throw new Error("Tipo de usuario invalido.");
+    throw new Error("Tipo de usuário inválido.");
   }
 
   const user = await requireCurrentDbUser();

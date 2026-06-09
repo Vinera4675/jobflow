@@ -40,7 +40,7 @@ export async function createJob(values: JobFormValues): Promise<JobActionResult>
   if (user.role !== "COMPANY") {
     return {
       success: false,
-      message: "Apenas usuarios empresa podem criar vagas.",
+      message: "Apenas usuários de empresa podem criar vagas.",
     };
   }
 
@@ -108,7 +108,7 @@ export async function updateJob(
   if (user.role !== "COMPANY") {
     return {
       success: false,
-      message: "Apenas usuarios empresa podem editar vagas.",
+      message: "Apenas usuários de empresa podem editar vagas.",
     };
   }
 
@@ -117,7 +117,7 @@ export async function updateJob(
   if (!job) {
     return {
       success: false,
-      message: "Vaga nao encontrada para esta empresa.",
+      message: "Vaga não encontrada para esta empresa.",
     };
   }
 
@@ -170,7 +170,7 @@ export async function closeJob(jobId: string): Promise<JobActionResult> {
   if (user.role !== "COMPANY") {
     return {
       success: false,
-      message: "Apenas usuarios empresa podem fechar vagas.",
+      message: "Apenas usuários de empresa podem encerrar vagas.",
     };
   }
 
@@ -179,7 +179,7 @@ export async function closeJob(jobId: string): Promise<JobActionResult> {
   if (!job) {
     return {
       success: false,
-      message: "Vaga nao encontrada para esta empresa.",
+      message: "Vaga não encontrada para esta empresa.",
     };
   }
 
@@ -201,6 +201,6 @@ export async function closeJob(jobId: string): Promise<JobActionResult> {
 
   return {
     success: true,
-    message: "Vaga fechada com sucesso.",
+    message: "Vaga encerrada com sucesso.",
   };
 }

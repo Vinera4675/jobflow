@@ -1,14 +1,12 @@
 # JobFlow
 
-JobFlow e uma aplicacao full stack de vagas e candidaturas, criada como projeto de portfolio para praticar desenvolvimento web com Next.js, TypeScript, Tailwind CSS, Prisma, PostgreSQL e Clerk.
+JobFlow é uma aplicação full stack que conecta candidatos e empresas em processos de recrutamento simples e organizados.
 
-O projeto simula um fluxo simples entre empresas e candidatos: empresas podem criar vagas, candidatos podem se candidatar e a empresa pode acompanhar os inscritos e atualizar o status das candidaturas.
+A plataforma permite que empresas publiquem vagas e acompanhem candidatos, enquanto profissionais encontram oportunidades e monitoram o andamento de suas candidaturas.
 
 ## Objetivo
 
-O objetivo do JobFlow e demonstrar, em um projeto pratico, conhecimentos de desenvolvimento full stack com autenticacao, banco de dados relacional, formularios validados, rotas protegidas e deploy.
-
-Este projeto foi desenvolvido com foco em aprendizado e portfolio, especialmente para oportunidades de estagio em desenvolvimento full stack.
+O objetivo do JobFlow é centralizar vagas, perfis e candidaturas em uma experiência clara para candidatos e empresas.
 
 ## Tecnologias Utilizadas
 
@@ -132,7 +130,7 @@ npm run db:migrate
 
 ### 5. Rode o seed
 
-O seed cria dados ficticios para testar empresas, candidatos, vagas e candidaturas.
+O seed cria dados de exemplo para validar os fluxos de empresas, candidatos, vagas e candidaturas.
 
 ```bash
 npm run seed
@@ -182,7 +180,7 @@ npm run start        # inicia a aplicacao em modo producao
 npm run lint         # executa o ESLint
 npm run db:migrate   # aplica migrations em producao
 npm run studio       # abre o Prisma Studio
-npm run seed         # popula o banco com dados ficticios
+npm run seed         # popula o banco com dados de exemplo
 ```
 
 ## Deploy
@@ -211,9 +209,9 @@ Tabelas principais:
 - `Job`
 - `Application`
 
-## Aprendizados
+## Aspectos Técnicos
 
-Durante o desenvolvimento do JobFlow, foram praticados:
+O desenvolvimento do JobFlow envolve:
 
 - Estrutura de projeto com Next.js App Router
 - Criacao de rotas publicas e protegidas

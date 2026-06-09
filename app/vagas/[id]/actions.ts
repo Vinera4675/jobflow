@@ -35,7 +35,7 @@ export async function applyToJob(
   if (user.role !== "CANDIDATE") {
     return {
       success: false,
-      message: "Contas de empresa nao podem se candidatar a vagas.",
+      message: "Contas de empresa não podem se candidatar a vagas.",
     };
   }
 
@@ -80,7 +80,7 @@ export async function applyToJob(
   if (!job) {
     return {
       success: false,
-      message: "Esta vaga nao existe ou nao esta mais aberta.",
+      message: "Esta vaga não existe ou não está mais aberta.",
     };
   }
 
@@ -99,7 +99,7 @@ export async function applyToJob(
   if (existingApplication) {
     return {
       success: false,
-      message: "Voce ja enviou uma candidatura para esta vaga.",
+      message: "Você já enviou uma candidatura para esta vaga.",
     };
   }
 
@@ -119,7 +119,7 @@ export async function applyToJob(
     ) {
       return {
         success: false,
-        message: "Voce ja enviou uma candidatura para esta vaga.",
+        message: "Você já enviou uma candidatura para esta vaga.",
       };
     }
 

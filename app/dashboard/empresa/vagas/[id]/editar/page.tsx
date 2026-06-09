@@ -73,8 +73,8 @@ export default async function EditCompanyJobPage({
                   {job.title}
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-                  Altere os dados da vaga ou feche a publicacao para remover a
-                  oportunidade da listagem publica.
+                  Altere os dados da vaga ou encerre a publicação para remover a
+                  oportunidade da listagem pública.
                 </p>
               </div>
               <span className="w-fit rounded-md bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">

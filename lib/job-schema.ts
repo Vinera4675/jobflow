@@ -2,20 +2,20 @@ import { z } from "zod";
 
 export const workModeOptions = [
   { value: "REMOTE", label: "Remoto" },
-  { value: "HYBRID", label: "Hibrido" },
+  { value: "HYBRID", label: "Híbrido" },
   { value: "ONSITE", label: "Presencial" },
 ] as const;
 
 export const employmentTypeOptions = [
-  { value: "INTERNSHIP", label: "Estagio" },
-  { value: "JUNIOR", label: "Junior" },
-  { value: "FULL_TIME", label: "Periodo integral" },
-  { value: "PART_TIME", label: "Meio periodo" },
+  { value: "INTERNSHIP", label: "Estágio" },
+  { value: "JUNIOR", label: "Júnior" },
+  { value: "FULL_TIME", label: "Período integral" },
+  { value: "PART_TIME", label: "Meio período" },
 ] as const;
 
 export const jobStatusLabels = {
-  OPEN: "OPEN",
-  CLOSED: "CLOSED",
+  OPEN: "Aberta",
+  CLOSED: "Encerrada",
 } as const;
 
 export const workModeLabels = Object.fromEntries(
@@ -31,23 +31,23 @@ export const jobSchema = z
     title: z
       .string()
       .trim()
-      .min(3, "Informe o titulo da vaga.")
-      .max(120, "O titulo deve ter no maximo 120 caracteres."),
+      .min(3, "Informe o título da vaga.")
+      .max(120, "O título deve ter no máximo 120 caracteres."),
     description: z
       .string()
       .trim()
-      .min(30, "Escreva uma descricao com pelo menos 30 caracteres.")
-      .max(3000, "A descricao deve ter no maximo 3000 caracteres."),
+      .min(30, "Escreva uma descrição com pelo menos 30 caracteres.")
+      .max(3000, "A descrição deve ter no máximo 3000 caracteres."),
     requirements: z
       .string()
       .trim()
       .min(3, "Informe pelo menos um requisito.")
-      .max(1200, "Os requisitos devem ter no maximo 1200 caracteres."),
+      .max(1200, "Os requisitos devem ter no máximo 1200 caracteres."),
     location: z
       .string()
       .trim()
-      .min(2, "Informe a localizacao da vaga.")
-      .max(120, "A localizacao deve ter no maximo 120 caracteres."),
+      .min(2, "Informe a localização da vaga.")
+      .max(120, "A localização deve ter no máximo 120 caracteres."),
     workMode: z.enum(["REMOTE", "HYBRID", "ONSITE"]),
     employmentType: z.enum([
       "INTERNSHIP",
@@ -58,13 +58,13 @@ export const jobSchema = z
     salary: z
       .string()
       .trim()
-      .max(80, "A faixa salarial deve ter no maximo 80 caracteres."),
+      .max(80, "A faixa salarial deve ter no máximo 80 caracteres."),
   })
   .superRefine((values, context) => {
     if (parseRequirements(values.requirements).length === 0) {
       context.addIssue({
         code: "custom",
-        message: "Informe pelo menos um requisito valido.",
+        message: "Informe pelo menos um requisito válido.",
         path: ["requirements"],
       });
     }

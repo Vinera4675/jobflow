@@ -107,13 +107,13 @@ export async function generateMetadata({
 
   if (!job) {
     return {
-      title: "Vaga nao encontrada | JobFlow",
+      title: "Vaga não encontrada | JobFlow",
     };
   }
 
   return {
     title: `${job.title} | JobFlow`,
-    description: job.description,
+    description: `Consulte os detalhes da oportunidade ${job.title} publicada por ${job.company.companyName}.`,
   };
 }
 

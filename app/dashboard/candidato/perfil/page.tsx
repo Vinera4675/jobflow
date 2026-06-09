@@ -38,11 +38,11 @@ export default async function CandidateProfilePage() {
               Perfil do candidato
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Complete suas informacoes profissionais.
+              Complete suas informações profissionais.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
               Mantenha seu perfil atualizado para enviar candidaturas e destacar
-              suas informacoes profissionais para empresas.
+              suas informações profissionais para empresas.
             </p>
           </section>
 

@@ -8,7 +8,7 @@ export function Footer() {
           <p className="text-lg font-semibold text-slate-950">JobFlow</p>
           <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
             Conectando candidatos e empresas com um fluxo simples para publicar
-            vagas, enviar candidaturas e acompanhar processos.
+            vagas, enviar candidaturas e acompanhar processos seletivos.
           </p>
         </div>
 

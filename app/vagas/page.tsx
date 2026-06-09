@@ -95,21 +95,27 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
           <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-                Vagas publicas
+                Vagas disponíveis
               </p>
               <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Encontre oportunidades para dar o proximo passo.
+                Encontre oportunidades para dar o próximo passo.
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600">
-                Busque oportunidades de estagio e desenvolvimento publicadas
-                por empresas que estao contratando.
+                Busque oportunidades de estágio e desenvolvimento publicadas
+                por empresas que estão contratando.
               </p>
               <div className="mx-auto mt-6 flex w-fit items-baseline gap-2 rounded-lg border border-slate-200 bg-slate-50 px-5 py-3">
                 <span className="text-2xl font-semibold text-slate-950">
                   {jobs.length}
                 </span>
                 <span className="text-sm text-slate-500">
-                  vagas abertas no momento
+                  {hasFilters
+                    ? jobs.length === 1
+                      ? "resultado encontrado"
+                      : "resultados encontrados"
+                    : jobs.length === 1
+                      ? "vaga aberta no momento"
+                      : "vagas abertas no momento"}
                 </span>
               </div>
             </div>
@@ -127,7 +133,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                   htmlFor="q"
                   className="text-sm font-semibold text-slate-800"
                 >
-                  Buscar por titulo
+                  Buscar por título
                 </label>
                 <input
                   id="q"
@@ -188,14 +194,14 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                   htmlFor="location"
                   className="text-sm font-semibold text-slate-800"
                 >
-                  Localizacao
+                  Localização
                 </label>
                 <input
                   id="location"
                   name="location"
                   type="search"
                   defaultValue={location ?? ""}
-                  placeholder="Ex: Sao Paulo"
+                  placeholder="Ex: São Paulo"
                   className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
@@ -232,7 +238,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                 <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
                   {hasFilters
                     ? "Ajuste os filtros ou limpe a busca para ver outras oportunidades abertas."
-                    : "Assim que uma empresa criar uma vaga com status aberta, ela aparecera nesta pagina publica."}
+                    : "Novas oportunidades aparecerão aqui assim que forem publicadas pelas empresas."}
                 </p>
                 {hasFilters ? (
                   <Link

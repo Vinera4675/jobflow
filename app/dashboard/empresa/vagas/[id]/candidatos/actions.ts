@@ -41,7 +41,7 @@ export async function updateApplicationStatus({
   if (!parsedStatus.success) {
     return {
       success: false,
-      message: "Status de candidatura invalido.",
+      message: "Status de candidatura inválido.",
     };
   }
 
@@ -63,7 +63,7 @@ export async function updateApplicationStatus({
   if (!application) {
     return {
       success: false,
-      message: "Candidatura nao encontrada para esta empresa.",
+      message: "Candidatura não encontrada para esta empresa.",
     };
   }
 

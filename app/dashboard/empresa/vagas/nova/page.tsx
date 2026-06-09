@@ -57,7 +57,7 @@ export default async function NewCompanyJobPage() {
                 Complete o perfil da empresa primeiro
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-700">
-                Voce precisa criar um perfil de empresa antes de publicar vagas.
+                Você precisa criar um perfil de empresa antes de publicar vagas.
               </p>
               <Link
                 href="/dashboard/empresa/perfil"

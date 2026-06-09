@@ -53,7 +53,7 @@ export function ApplicationForm({ jobId }: ApplicationFormProps) {
           maxLength={applicationMessageMaxLength}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder="Opcional: conte brevemente por que voce tem interesse nesta vaga."
+          placeholder="Opcional: conte brevemente por que você tem interesse nesta vaga."
           className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
         />
         <p className="mt-2 text-xs text-slate-500">

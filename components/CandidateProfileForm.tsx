@@ -66,7 +66,7 @@ export function CandidateProfileForm({
             {hasProfile ? "Editar perfil" : "Criar perfil"}
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Mantenha suas informacoes profissionais atualizadas para se
+            Mantenha suas informações profissionais atualizadas para se
             candidatar e apresentar melhor suas habilidades para empresas.
           </p>
         </div>
@@ -78,12 +78,12 @@ export function CandidateProfileForm({
       <div className="mt-6 grid gap-5">
         <div>
           <label htmlFor="title" className={labelClassName}>
-            Titulo profissional
+            Título profissional
           </label>
           <input
             id="title"
             type="text"
-            placeholder="Ex: Desenvolvedor Front-end Junior"
+            placeholder="Ex: Desenvolvedor Front-end Júnior"
             className={inputClassName}
             {...register("title")}
           />
@@ -99,7 +99,7 @@ export function CandidateProfileForm({
           <textarea
             id="bio"
             rows={5}
-            placeholder="Conte um pouco sobre sua experiencia, interesses e objetivos profissionais."
+            placeholder="Conte um pouco sobre sua experiência, interesses e objetivos profissionais."
             className={inputClassName}
             {...register("bio")}
           />
@@ -115,12 +115,12 @@ export function CandidateProfileForm({
           <textarea
             id="skills"
             rows={3}
-            placeholder="Ex: Comunicacao, atendimento ao cliente, planilhas, organizacao"
+            placeholder="Ex: Comunicação, atendimento ao cliente, planilhas, organização"
             className={inputClassName}
             {...register("skills")}
           />
           <p className="mt-2 text-xs leading-5 text-slate-500">
-            Separe as habilidades por virgula, ponto e virgula ou linha.
+            Separe as habilidades por vírgula, ponto e vírgula ou linha.
           </p>
           {errors.skills ? (
             <p className={errorClassName}>{errors.skills.message}</p>
@@ -162,7 +162,7 @@ export function CandidateProfileForm({
 
           <div>
             <label htmlFor="resumeUrl" className={labelClassName}>
-              Curriculo
+              Currículo
             </label>
             <input
               id="resumeUrl"

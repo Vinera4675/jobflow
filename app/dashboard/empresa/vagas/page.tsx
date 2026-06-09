@@ -68,8 +68,8 @@ export default async function CompanyJobsPage() {
                   Gerencie as vagas publicadas.
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-                  Esta listagem mostra apenas as vagas vinculadas ao perfil da
-                  empresa logada.
+                  Consulte as oportunidades publicadas pela sua empresa e
+                  acompanhe os candidatos de cada processo.
                 </p>
               </div>
 
@@ -90,7 +90,7 @@ export default async function CompanyJobsPage() {
                 Complete o perfil da empresa primeiro
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-700">
-                Antes de criar vagas, voce precisa cadastrar os dados principais
+                Antes de criar vagas, você precisa cadastrar os dados principais
                 da empresa. Assim cada vaga fica vinculada ao perfil correto.
               </p>
               <Link
@@ -178,7 +178,7 @@ export default async function CompanyJobsPage() {
                             href={`/vagas/${job.id}`}
                             className="inline-flex h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
                           >
-                            Ver vaga publica
+                            Ver vaga pública
                           </Link>
                         ) : null}
                       </div>

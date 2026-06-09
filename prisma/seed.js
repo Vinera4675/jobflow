@@ -30,7 +30,7 @@ const companies = [
     profile: {
       companyName: "Orbita Labs",
       description:
-        "Empresa ficticia de produtos digitais focada em plataformas web para times de operacoes.",
+        "Empresa de produtos digitais focada em plataformas web para times de operações.",
       website: "https://orbitalabs.example",
       location: "Sao Paulo, SP",
     },
@@ -42,7 +42,7 @@ const companies = [
     profile: {
       companyName: "Nova People",
       description:
-        "Consultoria ficticia que conecta empresas em crescimento a profissionais de tecnologia.",
+        "Consultoria que conecta empresas em crescimento a profissionais de tecnologia.",
       website: "https://novapeople.example",
       location: "Curitiba, PR",
     },
@@ -56,7 +56,7 @@ const candidates = [
     email: "lia.andrade@example",
     profile: {
       title: "Desenvolvedora Front-end Junior",
-      bio: "Profissional ficticia em transicao para tecnologia, com foco em interfaces acessiveis e organizacao de componentes.",
+      bio: "Profissional em transição para tecnologia, com foco em interfaces acessíveis e organização de componentes.",
       skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       githubUrl: "https://github.com/lia-seed",
       linkedinUrl: "https://linkedin.com/in/lia-seed",
@@ -69,7 +69,7 @@ const candidates = [
     email: "mateus.costa@example",
     profile: {
       title: "Desenvolvedor Full Stack Junior",
-      bio: "Candidato ficticio com interesse em APIs, bancos de dados relacionais e boas praticas de produto.",
+      bio: "Desenvolvedor com interesse em APIs, bancos de dados relacionais e boas práticas de produto.",
       skills: ["Node.js", "PostgreSQL", "Prisma", "React"],
       githubUrl: "https://github.com/mateus-seed",
       linkedinUrl: "https://linkedin.com/in/mateus-seed",
@@ -82,7 +82,7 @@ const candidates = [
     email: "sofia.mendes@example",
     profile: {
       title: "Estudante de UX e Front-end",
-      bio: "Pessoa candidata ficticia com base em design de interfaces, prototipagem e desenvolvimento front-end inicial.",
+      bio: "Profissional com base em design de interfaces, prototipagem e desenvolvimento front-end.",
       skills: ["HTML", "CSS", "Figma", "JavaScript"],
       githubUrl: "https://github.com/sofia-seed",
       linkedinUrl: "https://linkedin.com/in/sofia-seed",
@@ -96,7 +96,7 @@ const jobs = [
     companyIndex: 0,
     title: "Desenvolvedor Front-end Junior",
     description:
-      "Atue em um produto SaaS ficticio criando telas responsivas, componentes reutilizaveis e melhorias de experiencia para usuarios internos.",
+      "Atue em um produto SaaS criando telas responsivas, componentes reutilizáveis e melhorias de experiência para usuários internos.",
     requirements: [
       "Conhecimento em React e TypeScript",
       "Nocoes de consumo de APIs REST",
@@ -112,7 +112,7 @@ const jobs = [
     companyIndex: 0,
     title: "Estagio em Produto Digital",
     description:
-      "Apoie um time multidisciplinar ficticio na organizacao de backlog, testes de interface e acompanhamento de pequenas entregas.",
+      "Apoie um time multidisciplinar na organização de backlog, testes de interface e acompanhamento de pequenas entregas.",
     requirements: [
       "Estar estudando tecnologia, design ou areas relacionadas",
       "Boa comunicacao escrita",
@@ -128,7 +128,7 @@ const jobs = [
     companyIndex: 0,
     title: "Desenvolvedor Full Stack",
     description:
-      "Construa funcionalidades ficticias de ponta a ponta usando Next.js, rotas server-side, Prisma e PostgreSQL.",
+      "Construa funcionalidades de ponta a ponta para produtos web, integrações internas e serviços orientados a dados.",
     requirements: [
       "Experiencia com Node.js",
       "Conhecimento em PostgreSQL",
@@ -144,7 +144,7 @@ const jobs = [
     companyIndex: 1,
     title: "Analista de Suporte Tecnico Junior",
     description:
-      "Ajude clientes ficticios a resolver duvidas de uso, registrar incidentes e documentar solucoes recorrentes.",
+      "Ajude clientes a resolver dúvidas de uso, registrar incidentes e documentar soluções recorrentes.",
     requirements: [
       "Organizacao para registrar atendimentos",
       "Conhecimento basico de sistemas web",
@@ -160,7 +160,7 @@ const jobs = [
     companyIndex: 1,
     title: "Desenvolvedor Back-end Meio Periodo",
     description:
-      "Participe de um projeto ficticio de APIs internas, integracoes simples e manutencao de consultas em banco relacional.",
+      "Participe do desenvolvimento de APIs internas, integrações e manutenção de consultas em banco relacional.",
     requirements: [
       "Conhecimento em JavaScript ou TypeScript",
       "Nocoes de SQL",
@@ -176,7 +176,7 @@ const jobs = [
     companyIndex: 1,
     title: "UX Researcher Junior",
     description:
-      "Vaga ficticia encerrada para pesquisa com usuarios, entrevistas e organizacao de aprendizados do produto.",
+      "Conduza pesquisas com usuários, entrevistas e organização de insights para apoiar decisões de produto.",
     requirements: [
       "Conhecimento em pesquisa qualitativa",
       "Boa sintese de informacoes",
@@ -231,7 +231,7 @@ const applications = [
     candidateIndex: 2,
     status: "REVIEWING",
     message:
-      "Apesar da vaga estar encerrada, esta candidatura ficticia ajuda a demonstrar historico de processo.",
+      "Tenho interesse em pesquisa de produto e experiência com entrevistas e organização de insights.",
   },
 ];
 
@@ -383,7 +383,7 @@ async function main() {
     });
   }
 
-  console.log("Seed concluido com dados ficticios do JobFlow.");
+  console.log("Seed concluído com dados de exemplo do JobFlow.");
 }
 
 main()

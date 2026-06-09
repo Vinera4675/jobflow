@@ -73,7 +73,7 @@ function ApplicationSection({
           Entre para se candidatar
         </h2>
         <p className="mt-2 text-sm leading-6 text-slate-700">
-          Voce precisa estar logado como candidato para enviar uma candidatura
+          Você precisa estar logado como candidato para enviar uma candidatura
           para esta vaga.
         </p>
         <ClerkAuthButton
@@ -97,14 +97,14 @@ function ApplicationSection({
           Escolha seu tipo de conta
         </h2>
         <p className="mt-2 text-sm leading-6 text-slate-700">
-          Antes de se candidatar, informe se voce quer usar o JobFlow como
+          Antes de se candidatar, informe se você quer usar o JobFlow como
           candidato ou empresa.
         </p>
         <Link
           href="/onboarding"
           className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto"
         >
-          Ir para onboarding
+          Configurar minha conta
         </Link>
       </section>
     );
@@ -117,10 +117,10 @@ function ApplicationSection({
         className="rounded-lg border border-amber-200 bg-amber-50 p-5"
       >
         <h2 className="text-lg font-semibold text-slate-950">
-          Empresas nao podem se candidatar
+          Empresas não podem se candidatar
         </h2>
         <p className="mt-2 text-sm leading-6 text-slate-700">
-          Esta conta esta marcada como empresa. Use o dashboard para publicar e
+          Esta conta está configurada como empresa. Use o painel para publicar e
           gerenciar vagas.
         </p>
         <Link
@@ -143,7 +143,7 @@ function ApplicationSection({
           Complete seu perfil de candidato
         </h2>
         <p className="mt-2 text-sm leading-6 text-slate-700">
-          Para enviar candidaturas, primeiro cadastre suas informacoes
+          Para enviar candidaturas, primeiro cadastre suas informações
           profissionais no perfil de candidato.
         </p>
         <Link
@@ -163,10 +163,10 @@ function ApplicationSection({
         className="rounded-lg border border-emerald-200 bg-emerald-50 p-5"
       >
         <h2 className="text-lg font-semibold text-slate-950">
-          Candidatura ja enviada
+          Candidatura já enviada
         </h2>
         <p className="mt-2 text-sm leading-6 text-slate-700">
-          Voce se candidatou em{" "}
+          Você se candidatou em{" "}
           <time dateTime={state.createdAt.toISOString()}>
             {dateFormatter.format(state.createdAt)}
           </time>
@@ -234,7 +234,7 @@ export function JobDetails({ job, applicationState }: JobDetailsProps) {
         <div className="space-y-8">
           <section>
             <h2 className="text-xl font-semibold text-slate-950">
-              Descricao da vaga
+              Descrição da vaga
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
               {job.description}
@@ -282,7 +282,7 @@ export function JobDetails({ job, applicationState }: JobDetailsProps) {
               </dd>
             </div>
             <div>
-              <dt className="text-sm text-slate-500">Localizacao</dt>
+                <dt className="text-sm text-slate-500">Localização</dt>
               <dd className="mt-1 font-semibold text-slate-950">
                 {job.location}
               </dd>
@@ -301,7 +301,7 @@ export function JobDetails({ job, applicationState }: JobDetailsProps) {
             </div>
             {job.salary ? (
               <div>
-                <dt className="text-sm text-slate-500">Salario</dt>
+                <dt className="text-sm text-slate-500">Salário</dt>
                 <dd className="mt-1 font-semibold text-slate-950">
                   {job.salary}
                 </dd>

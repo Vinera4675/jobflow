@@ -27,7 +27,7 @@ export async function saveCompanyProfile(
   if (user.role !== "COMPANY") {
     return {
       success: false,
-      message: "Apenas usuarios empresa podem editar este perfil.",
+      message: "Apenas usuários de empresa podem editar este perfil.",
     };
   }
 

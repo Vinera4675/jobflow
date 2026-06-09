@@ -100,7 +100,7 @@ export default async function CompanyJobCandidatesPage({
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
                   Veja os candidatos que enviaram candidatura para esta vaga e
-                  avalie as informacoes principais de cada perfil.
+                  avalie as informações principais de cada perfil.
                 </p>
               </div>
               <Link
@@ -119,13 +119,13 @@ export default async function CompanyJobCandidatesPage({
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
                 Quando candidatos enviarem candidatura para esta vaga, eles
-                aparecerao aqui com perfil, mensagem, status e data de envio.
+                aparecerão aqui com perfil, mensagem, status e data de envio.
               </p>
               <Link
                 href={`/vagas/${job.id}`}
                 className="mt-6 inline-flex h-11 items-center justify-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
               >
-                Ver vaga publica
+                Ver vaga pública
               </Link>
             </section>
           ) : (
@@ -193,7 +193,7 @@ export default async function CompanyJobCandidatesPage({
                         </h3>
                         <p className="mt-2 text-sm leading-6 text-slate-600">
                           {application.message ??
-                            "O candidato nao enviou uma mensagem nesta candidatura."}
+                            "O candidato não enviou uma mensagem nesta candidatura."}
                         </p>
                       </section>
                     </div>
@@ -220,7 +220,7 @@ export default async function CompanyJobCandidatesPage({
                           </a>
                         ) : (
                           <p className="text-sm text-slate-500">
-                            GitHub nao informado
+                            GitHub não informado
                           </p>
                         )}
 
@@ -235,7 +235,7 @@ export default async function CompanyJobCandidatesPage({
                           </a>
                         ) : (
                           <p className="text-sm text-slate-500">
-                            LinkedIn nao informado
+                            LinkedIn não informado
                           </p>
                         )}
 
@@ -246,11 +246,11 @@ export default async function CompanyJobCandidatesPage({
                             rel="noreferrer"
                             className="text-sm font-semibold text-emerald-700 underline-offset-4 hover:underline"
                           >
-                            Curriculo URL
+                            Currículo
                           </a>
                         ) : (
                           <p className="text-sm text-slate-500">
-                            Curriculo nao informado
+                            Currículo não informado
                           </p>
                         )}
                       </div>

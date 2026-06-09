@@ -116,8 +116,8 @@ export function JobForm({
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
             {isEditMode
-              ? "Atualize as informacoes principais da vaga ou encerre a publicacao quando o processo nao estiver mais aberto."
-              : "A vaga sera publicada com status aberta e ficara vinculada ao perfil da empresa logada."}
+              ? "Atualize as informações principais da vaga ou encerre a publicação quando o processo não estiver mais aberto."
+              : "A vaga será publicada como aberta e ficará vinculada ao perfil da sua empresa."}
           </p>
         </div>
         <span className="w-fit rounded-md bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
@@ -128,12 +128,12 @@ export function JobForm({
       <div className="mt-6 grid gap-5">
         <div>
           <label htmlFor="title" className={labelClassName}>
-            Titulo
+            Título
           </label>
           <input
             id="title"
             type="text"
-            placeholder="Ex: Desenvolvedor Front-end Junior"
+            placeholder="Ex: Desenvolvedor Front-end Júnior"
             className={inputClassName}
             {...register("title")}
           />
@@ -144,7 +144,7 @@ export function JobForm({
 
         <div>
           <label htmlFor="description" className={labelClassName}>
-            Descricao
+            Descrição
           </label>
           <textarea
             id="description"
@@ -166,13 +166,13 @@ export function JobForm({
             id="requirements"
             rows={4}
             placeholder={
-              "Ex:\nExperiencia na area\nBoa comunicacao\nOrganizacao"
+              "Ex:\nExperiência na área\nBoa comunicação\nOrganização"
             }
             className={inputClassName}
             {...register("requirements")}
           />
           <p className="mt-2 text-xs leading-5 text-slate-500">
-            Separe os requisitos por linha ou ponto e virgula.
+            Separe os requisitos por linha ou ponto e vírgula.
           </p>
           {errors.requirements ? (
             <p className={errorClassName}>{errors.requirements.message}</p>
@@ -182,12 +182,12 @@ export function JobForm({
         <div className="grid gap-5 md:grid-cols-2">
           <div>
             <label htmlFor="location" className={labelClassName}>
-              Localizacao
+              Localização
             </label>
             <input
               id="location"
               type="text"
-              placeholder="Ex: Sao Paulo, SP"
+              placeholder="Ex: São Paulo, SP"
               className={inputClassName}
               {...register("location")}
             />
@@ -198,7 +198,7 @@ export function JobForm({
 
           <div>
             <label htmlFor="salary" className={labelClassName}>
-              Salario ou faixa salarial
+              Salário ou faixa salarial
             </label>
             <input
               id="salary"
@@ -236,7 +236,7 @@ export function JobForm({
 
           <div>
             <label htmlFor="employmentType" className={labelClassName}>
-              Tipo de contratacao
+              Tipo de contratação
             </label>
             <select
               id="employmentType"
@@ -287,10 +287,10 @@ export function JobForm({
             className="inline-flex h-11 items-center justify-center rounded-md border border-red-200 bg-white px-5 text-sm font-semibold text-red-700 transition-colors hover:border-red-300 hover:bg-red-50 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-400"
           >
             {currentStatus === "CLOSED"
-              ? "Vaga fechada"
+              ? "Vaga encerrada"
               : isClosingPending
                 ? "Fechando..."
-                : "Fechar vaga"}
+                : "Encerrar vaga"}
           </button>
         ) : null}
 
@@ -310,7 +310,7 @@ export function JobForm({
               ? "Salvando..."
               : "Criando..."
             : isEditMode
-              ? "Salvar alteracoes"
+              ? "Salvar alterações"
               : "Criar vaga"}
         </button>
       </div>

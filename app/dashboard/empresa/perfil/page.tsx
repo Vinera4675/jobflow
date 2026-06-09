@@ -38,7 +38,7 @@ export default async function CompanyProfilePage() {
               Perfil da empresa
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Complete as informacoes da empresa.
+              Complete as informações da empresa.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
               Mantenha os dados da empresa atualizados para publicar vagas e se

@@ -27,18 +27,18 @@ export function HeaderAuth() {
   }
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       <button
         type="button"
         onClick={() => clerk.openSignIn({ forceRedirectUrl: "/dashboard" })}
-        className="hidden rounded-md px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 sm:inline-flex"
+        className="inline-flex rounded-md px-2 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 sm:px-4"
       >
         Entrar
       </button>
       <button
         type="button"
         onClick={() => clerk.openSignUp({ forceRedirectUrl: "/dashboard" })}
-        className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+        className="rounded-md bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:px-4"
       >
         Cadastrar
       </button>
